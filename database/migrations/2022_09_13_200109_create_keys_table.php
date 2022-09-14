@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection("sqlite")->create('keys', function (Blueprint $table) {
+        Schema::connection(env("DB_SEC_CONNECTION"))->create('keys', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("user_id");
             $table->string("key")->nullable();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::connection("sqlite")->dropIfExists('keys');
+        Schema::connection(env("DB_SEC_CONNECTION"))->dropIfExists('keys');
     }
 };
