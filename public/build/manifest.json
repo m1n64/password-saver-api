@@ -1,0 +1,26 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app.bddaea10.js",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_index.83bc9570.js"
+    ]
+  },
+  "resources/js/pages/documentation.js": {
+    "file": "assets/documentation.199e26d5.js",
+    "src": "resources/js/pages/documentation.js",
+    "isEntry": true,
+    "imports": [
+      "_index.83bc9570.js"
+    ]
+  },
+  "_index.83bc9570.js": {
+    "file": "assets/index.83bc9570.js"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app.c6ee1792.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  }
+}

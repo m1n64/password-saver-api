@@ -1,0 +1,24 @@
+#app {
+    background-color: #fafafa;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.btn {
+    @apply py-2 px-6 border-solid border-4 ;
+}
+.btn.btn-lg {
+    @apply text-3xl;
+}
+.btn.btn-primary {
+    @apply border-blue-500 hover:border-blue-500 bg-blue-500 text-white rounded-lg hover:bg-white hover:text-blue-500 font-bold active:bg-blue-500 active:text-white hover:text-blue-700;
+}
+.btn.btn-redoc {
+    @apply border-red-500 rounded-lg text-red-500 font-bold active:bg-red-500 active:text-white hover:border-red-700 hover:text-red-700;
+}
+.btn.btn-swagger {
+    @apply border-green-500 rounded-lg text-green-500 font-bold active:bg-green-500 active:text-white hover:border-green-700 hover:text-green-700;
+}
