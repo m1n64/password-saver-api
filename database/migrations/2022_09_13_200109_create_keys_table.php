@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::connection(env("DB_SEC_CONNECTION"))->drop('keys');
         Schema::connection(env("DB_SEC_CONNECTION"))->create('keys', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("user_id");
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::connection(env("DB_SEC_CONNECTION"))->dropIfExists('keys');
+        Schema::connection(env("DB_SEC_CONNECTION"))->drop('keys');
     }
 };
