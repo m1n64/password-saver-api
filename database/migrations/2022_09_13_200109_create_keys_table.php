@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::connection(env("DB_SEC_CONNECTION"))->create('keys', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("user_id");
-            $table->string("key")->nullable();
+            $table->text("key")->nullable();
             $table->timestamps();
         });
     }
