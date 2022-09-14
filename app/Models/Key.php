@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Repositories\KeyModel\KeyInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Key extends Model
+class Key extends Model implements KeyInterface
 {
     use HasFactory;
 

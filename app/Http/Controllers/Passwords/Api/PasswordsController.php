@@ -8,6 +8,7 @@ use App\Classes\Helpers\EncryptionHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Key;
 use App\Models\Passwords\Password;
+use App\Repositories\KeyModel\KeyInterface;
 use App\Traits\JsonResponseTrait;
 use Defuse\Crypto\Crypto;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class PasswordsController extends Controller
     /**
      * @var Key
      */
-    protected Key $key;
+    protected KeyInterface $key;
 
     /**
      * PasswordsController constructor.
@@ -37,7 +38,7 @@ class PasswordsController extends Controller
      */
     public function __construct(
         Password $password,
-        Key $key
+        KeyInterface $key
     )
     {
         $this->password = $password;

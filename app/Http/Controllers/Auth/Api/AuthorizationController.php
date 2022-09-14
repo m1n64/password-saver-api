@@ -8,6 +8,7 @@ use App\Classes\Helpers\UserApiHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Key;
 use App\Models\User;
+use App\Repositories\KeyModel\KeyInterface;
 use App\Traits\JsonResponseTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -28,13 +29,20 @@ class AuthorizationController extends Controller
     protected User $user;
 
     /**
+     * @var KeyInterface
+     */
+    protected KeyInterface $key;
+
+    /**
      * LoginController constructor.
      */
     public function __construct(
-        User $user
+        User $user,
+        KeyInterface $key
     )
     {
         $this->user = $user;
+        $this->key = $key;
     }
 
     /**
@@ -118,7 +126,7 @@ class AuthorizationController extends Controller
 
         $answer = UserApiHelper::getArrayAnswer($user);
 
-        $key = Key::where("user_id", $answer["id"])
+        $key = $this->key::where("user_id", $answer["id"])
             ->first();
 
         return $this->success("", $answer);
@@ -193,7 +201,7 @@ class AuthorizationController extends Controller
 
         $answer = UserApiHelper::getArrayAnswer($user);
 
-        $key = Key::create([
+        $key = $this->key::create([
             "user_id" => $user->id,
             "key" => Crypt::encryptString(Str::random(64))
         ]);
